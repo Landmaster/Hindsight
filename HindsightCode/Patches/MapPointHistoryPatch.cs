@@ -53,11 +53,10 @@ public class MapPointHistoryPatch
                 var runState = RunState.FromSerializable(serializableRun);
                 RunManager.Instance.State = RunManager.Instance.State == null ? runState : throw new InvalidOperationException("State is already set.");
                 var netService = new NetSingleplayerGameService();
-                RunManager.Instance.InitializeShared(netService, new PeerInputSynchronizer(netService), true,
+                RunManager.Instance.InitializeShared(netService, new PeerInputSynchronizer(netService), false,
                     serializableRun.DailyTime, serializableRun.StartTime, serializableRun.RunTime, serializableRun.WinTime, serializableRun.NumReloads);
                 RunManager.Instance.InitializeRunLobby(netService, runState);
                 RunManager.Instance.InitializeSavedRun(serializableRun);
-                RunManager.Instance.ShouldSave = false;
                 SfxCmd.Play(runState.Players[0].Character.CharacterTransitionSfx);
                 await NGame.Instance.Transition.FadeOut(transitionPath: runState.Players[0].Character.CharacterSelectTransitionPath);
                 NGame.Instance.ReactionContainer.InitializeNetworking(new NetSingleplayerGameService());
