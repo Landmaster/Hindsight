@@ -3,11 +3,11 @@
   "name": "Hindsight",
   "author": "Landmaster",
   "description": "Replay old runs from previous floors to hindsight them",
-  "version": "v0.2.0",
+  "version": "v0.2.1",
   "has_pck": true,
   "has_dll": true,
   "dependencies": [
     { "id": "BaseLib", "min_version": "3.1.3" }
   ],
-  "affects_gameplay": true
+  "affects_gameplay": false
 }
