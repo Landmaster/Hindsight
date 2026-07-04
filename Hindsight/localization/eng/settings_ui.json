@@ -3,5 +3,7 @@
   "HINDSIGHT-RESUME_RUNNING.header": "Hindsight Run",
   "HINDSIGHT.mod_title": "Hindsight",
   "HINDSIGHT-RUNS_SAVED_TO_HINDSIGHT.title": "Runs saved to Hindsight",
-  "HINDSIGHT-RUNS_SAVED_TO_HINDSIGHT.hover.desc": "Maximum number of runs at a time with hindsight/resumer data saved. Older runs will have their hindsight data purged."
+  "HINDSIGHT-RUNS_SAVED_TO_HINDSIGHT.hover.desc": "Maximum number of runs at a time with hindsight/resumer data saved. Older runs will have their hindsight data purged.",
+  "HINDSIGHT-SAVE_HINDSIGHTED_RUNS.title": "Save hindsighted runs",
+  "HINDSIGHT-SAVE_HINDSIGHTED_RUNS.hover.desc": "If checked, save hindsighted runs to run history."
 }

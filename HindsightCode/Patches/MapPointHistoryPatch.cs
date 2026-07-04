@@ -1,5 +1,6 @@
 using Godot;
 using HarmonyLib;
+using Hindsight.HindsightCode.Config;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Multiplayer;
@@ -53,7 +54,7 @@ public class MapPointHistoryPatch
                 var runState = RunState.FromSerializable(serializableRun);
                 RunManager.Instance.State = RunManager.Instance.State == null ? runState : throw new InvalidOperationException("State is already set.");
                 var netService = new NetSingleplayerGameService();
-                RunManager.Instance.InitializeShared(netService, new PeerInputSynchronizer(netService), false,
+                RunManager.Instance.InitializeShared(netService, new PeerInputSynchronizer(netService), HindsightModConfig.SaveHindsightedRuns,
                     serializableRun.DailyTime, serializableRun.StartTime, serializableRun.RunTime, serializableRun.WinTime, serializableRun.NumReloads);
                 RunManager.Instance.InitializeRunLobby(netService, runState);
                 RunManager.Instance.InitializeSavedRun(serializableRun);
