@@ -1,7 +1,8 @@
-using Godot;
+using System.Diagnostics;
 using HarmonyLib;
 using Hindsight.HindsightCode.Config;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Multiplayer;
 using MegaCrit.Sts2.Core.Multiplayer.Game.PeerInput;
@@ -56,9 +57,14 @@ public class MapPointHistoryPatch
                 var netService = new NetSingleplayerGameService();
                 RunManager.Instance.InitializeShared(netService, new PeerInputSynchronizer(netService), HindsightModConfig.SaveHindsightedRuns,
                     serializableRun.DailyTime, serializableRun.StartTime, serializableRun.RunTime, serializableRun.WinTime, serializableRun.NumReloads);
-                RunManager.Instance.InitializeRunLobby(netService, runState);
+                IEnumerable<RunLobbyPlayer> players = [new RunLobbyPlayer() {
+                    id = netService.NetId,
+                    versionInfo = PeerVersionInfo.LocalDefault()
+                }];
+                RunManager.Instance.InitializeRunLobby(netService, runState, players);
                 RunManager.Instance.InitializeSavedRun(serializableRun);
                 SfxCmd.Play(runState.Players[0].Character.CharacterTransitionSfx);
+                Debug.Assert(NGame.Instance != null, "NGame.Instance != null");
                 await NGame.Instance.Transition.FadeOut(transitionPath: runState.Players[0].Character.CharacterSelectTransitionPath);
                 NGame.Instance.ReactionContainer.InitializeNetworking(new NetSingleplayerGameService());
                 await NGame.Instance.LoadRun(runState, serializableRun.PreFinishedRoom);
