@@ -8,4 +8,4 @@ Download the latest zip from https://github.com/Landmaster/Hindsight/releases or
 
 ## Usage
 
-Click on a run node in run history and it will prompt you if you want to replay that run from that floor (nothing will be saved). By default the last 5 runs will have data kept so that they can be replayed in this manner; this can be adjusted in the config.
+Click on a run node in run history and it will prompt you if you want to replay that run from that floor (nothing will be saved). By default the last 2 runs will have data kept so that they can be replayed in this manner; this can be adjusted in the config.
