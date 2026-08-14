@@ -64,7 +64,6 @@ public class MapPointHistoryPatch
                 RunManager.Instance.InitializeRunLobby(netService, runState, players);
                 RunManager.Instance.InitializeSavedRun(serializableRun);
                 SfxCmd.Play(runState.Players[0].Character.CharacterTransitionSfx);
-                Debug.Assert(NGame.Instance != null, "NGame.Instance != null");
                 await NGame.Instance.Transition.FadeOut(transitionPath: runState.Players[0].Character.CharacterSelectTransitionPath);
                 NGame.Instance.ReactionContainer.InitializeNetworking(new NetSingleplayerGameService());
                 await NGame.Instance.LoadRun(runState, serializableRun.PreFinishedRoom);
