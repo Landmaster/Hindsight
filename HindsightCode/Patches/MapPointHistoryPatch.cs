@@ -59,7 +59,7 @@ public class MapPointHistoryPatch
                     serializableRun.DailyTime, serializableRun.StartTime, serializableRun.RunTime, serializableRun.WinTime, serializableRun.NumReloads);
                 IEnumerable<RunLobbyPlayer> players = [new RunLobbyPlayer() {
                     id = netService.NetId,
-                    versionInfo = PeerVersionInfo.LocalDefault()
+                    isModded = netService.LocalVersion.IsModded()
                 }];
                 RunManager.Instance.InitializeRunLobby(netService, runState, players);
                 RunManager.Instance.InitializeSavedRun(serializableRun);
