@@ -6,6 +6,8 @@ Hindsighting mod for Slay the Spire 2 akin to run resumer from StS1
 
 Download the latest zip from https://github.com/Landmaster/Hindsight/releases or https://www.nexusmods.com/slaythespire2/mods/925 and unzip the contents in the mods directory of Slay the Spire 2. Requires [BaseLib](https://github.com/Alchyr/BaseLib-StS2)
 
+*Current release requires being on the beta branch*
+
 ## Usage
 
 Click on a run node in run history and it will prompt you if you want to replay that run from that floor (nothing will be saved). By default the last 2 runs will have data kept so that they can be replayed in this manner; this can be adjusted in the config.
